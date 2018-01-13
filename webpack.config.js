@@ -19,6 +19,9 @@ var config = {
     }, {
       test: /\.css$/,
       loader: "style-loader!css-loader"
+    }, { 
+      test: /\.(png|jpg|woff2|eot|ttf|svg)$/, 
+      loader: 'url-loader?limit=100000' 
     }]
   },
   watch: true
