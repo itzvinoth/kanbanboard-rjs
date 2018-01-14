@@ -22,6 +22,9 @@ var config = {
     }, { 
       test: /\.(png|jpg|woff2|eot|ttf|svg)$/, 
       loader: 'url-loader?limit=100000' 
+    },{ 
+      test: /\.jpeg$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, 
+      loader: "file-loader"
     }]
   },
   watch: true
