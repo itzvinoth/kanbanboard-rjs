@@ -3,7 +3,6 @@ import React from 'react';
 import {  Row, Col, Card, Icon, Avatar, Button } from 'antd';
 import './Cards.css';
 import logo from './logo.jpg';
-import avatar from './avatar.png';
 
 const { Meta } = Card;
 export default class Cards extends React.Component {
@@ -19,17 +18,20 @@ export default class Cards extends React.Component {
     			},{
     				desc: 'Post new dribble shot and share it on social media',
     				imgAvail: false,
-    			}]
+    			},{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgAvail: false,
+                }]
     		},{
     			type: 'Next Priority',
                 borderTopColor: '#009933',
     			contents: [{
-    				desc: 'Monetisation (Share revenue )',
-    				imgAvail: true,
-    			},{
     				desc: 'Post new dribble shot and share it on social media',
     				imgAvail: false,
-    			}]
+    			},{
+                    desc: 'Monetisation (Share revenue )',
+                    imgAvail: true,
+                }]
     		},{
     			type: 'In Progress',
                 borderTopColor: '#3333ff',
@@ -59,14 +61,10 @@ export default class Cards extends React.Component {
 	}
 
 	render() {
+        const imageUrl = this.props.imageUrl;
         const styles = {
-            divStyle : {
-                marginLeft: '10px',
-                marginTop: '10px',
-                backgroundColor: '#e8e8e8',
-                float: 'left'
-            }, cardStyle : {
-                margin: '5px' 
+            cardStyle : {
+                margin: '5px'
             }, logoStyle: {
                 width:'180px',
                 height:'100px',
@@ -82,7 +80,7 @@ export default class Cards extends React.Component {
                 </Row>
 				<Row>
 					{this.state.progress.map((prog, index) => {
-                        return (<Col span={4} style={{marginLeft: '10px', marginTop: '10px', backgroundColor: '#e8e8e8', float: 'left', borderTop: '3px solid '+prog.borderTopColor}} key={index} > 
+                        return (<div key={index}><Col span={4} style={{paddingBottom: '5px', marginLeft: '10px', marginTop: '10px', backgroundColor: '#e8e8e8', float: 'left', borderTop: '3px solid '+prog.borderTopColor}} > 
                         
 						{prog.contents.map((card, id) => { 
 							if (card.imgAvail) {
@@ -95,7 +93,7 @@ export default class Cards extends React.Component {
                                             <Icon type='form' />
                                             <span>1</span>
                                             </div>
-                                            <Avatar src={avatar} style={{marginLeft:'40%'}}/>
+                                            <Avatar src={imageUrl} style={{marginLeft:'40%'}}/>
 										</Card>
 									</div>)
 		      				} else {
@@ -106,7 +104,8 @@ export default class Cards extends React.Component {
 									</div>)
 		      				}
 						})}
-					</Col>)
+                    <div style={{position:'fixed', marginLeft:'5px'}}><Icon type='plus-circle' style={{fontSize: '30px', color:"#6666ff"}}/></div>
+					</Col></div>)
 					})}
                     <Col span={4} style={{ marginLeft: '10px', marginTop: '10px', float: 'left'}}>
                         <Button size='large' style= {{backgroundColor: '#e8e8e8'}}>
