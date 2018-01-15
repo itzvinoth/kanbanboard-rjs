@@ -17,7 +17,7 @@ export default class Cards extends React.Component {
     				desc: 'Monetisation (Share revenue )',
     				imgAvail: true,
     			},{
-    				desc: 'Post new dribble shot and share it on social media Post new dribble shot and share it on social media',
+    				desc: 'Post new dribble shot and share it on social media',
     				imgAvail: false,
     			},{
                     desc: 'Post new dribble shot and share it on social media',
@@ -69,7 +69,7 @@ export default class Cards extends React.Component {
             }, logoStyle: {
                 width:'180px',
                 height:'100px',
-                marginLeft:'30px'
+                marginLeft:'10px'
             }
         };
 		return (
@@ -86,15 +86,16 @@ export default class Cards extends React.Component {
 						{prog.contents.map((card, id) => { 
 							if (card.imgAvail) {
 		      					return (<div key={id}>
-										<Card style={styles.cardStyle} cover={<img src={logo} style={styles.logoStyle}/>}>
-										    <Meta description={card.desc}/>
+										<Card style={styles.cardStyle}>
+                                            <img src={logo} style={styles.logoStyle}/>
+										    <div>{card.desc}</div>
                                             <div style={{float:'left', marginTop:'5%'}}>
-                                            <Icon type='check-square-o' />
-                                            <span>3</span>&nbsp;&nbsp;
-                                            <Icon type='form' />
-                                            <span>1</span>
+                                                <Icon type='check-square-o' />
+                                                <span>3</span>&nbsp;&nbsp;
+                                                <Icon type='form' />
+                                                <span>1</span>
                                             </div>
-                                            <Avatar src={imageUrl} style={{marginLeft:'40%'}}/>
+                                            <Avatar src={imageUrl} style={{marginLeft: '110px', marginTop:'3px'}}/>
 										</Card>
 									</div>)
 		      				} else {
