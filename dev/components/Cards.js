@@ -2,6 +2,7 @@ import React from 'react';
 
 import {  Row, Col, Card, Icon, Avatar, Button } from 'antd';
 import './Cards.css';
+import 'antd/dist/antd.css';
 import logo from './logo.jpg';
 
 const { Meta } = Card;
@@ -16,7 +17,7 @@ export default class Cards extends React.Component {
     				desc: 'Monetisation (Share revenue )',
     				imgAvail: true,
     			},{
-    				desc: 'Post new dribble shot and share it on social media',
+    				desc: 'Post new dribble shot and share it on social media Post new dribble shot and share it on social media',
     				imgAvail: false,
     			},{
                     desc: 'Post new dribble shot and share it on social media',
