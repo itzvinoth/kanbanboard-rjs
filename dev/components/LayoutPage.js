@@ -59,7 +59,7 @@ export default class LayoutPage extends React.Component {
                 <Search placeholder="Search" style={{ width: "300px" }}/>
               </Col>
               <Col className="gutter-row" span={4}>
-                <Button type="primary">
+                <Button style={{ background:"#6666ff", color: "#FFFFFF" }}>
                   <Icon type="plus" />New Card
                 </Button>
               </Col>
