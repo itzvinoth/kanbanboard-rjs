@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Serve static assets
-app.use("/dist", express.static("./dist"))
+app.use("/app.min.js", express.static("./app.min.js"))
 
 // Serve root
 app.get("/*", (req, res) => {
