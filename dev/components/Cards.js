@@ -16,9 +16,10 @@ export default class Cards extends React.Component {
     			contents: [{
     				desc: 'Monetisation (Share revenue )',
     				imgAvail: true,
+                    commentsAvail: true,
     			},{
     				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false,
+    				imgAvail: false
     			},{
                     desc: 'Post new dribble shot and share it on social media',
                     imgAvail: false,
@@ -32,6 +33,7 @@ export default class Cards extends React.Component {
     			},{
                     desc: 'Monetisation (Share revenue )',
                     imgAvail: true,
+                    commentsAvail: false
                 }]
     		},{
     			type: 'In Progress',
@@ -73,7 +75,7 @@ export default class Cards extends React.Component {
             }
         };
 		return (
-			<div>
+            <div>
                 <Row>
                     {this.state.progress.map((prog, index) => {
                         return (<Col span={4} style={{marginLeft: '12px', marginTop:'5px'}} key={index}><h4>{prog.type + ' ' +prog.contents.length}</h4> </Col>)
@@ -84,18 +86,27 @@ export default class Cards extends React.Component {
                         return (<div key={index}><Col span={4} style={{paddingBottom: '5px', marginLeft: '10px', marginTop: '10px', backgroundColor: '#e8e8e8', float: 'left', borderTop: '3px solid '+prog.borderTopColor}} > 
                         
 						{prog.contents.map((card, id) => { 
+                            function commentsAvail() {
+                                if (card.commentsAvail) {
+                                    return (<div style={{float:'left', marginTop:'5%'}}>
+                                                <Icon type='check-square-o' />
+                                                <span>3</span>&nbsp;&nbsp;
+                                                <Icon type='form' />
+                                                <span>1</span>
+                                            </div>)
+                                }
+                            }
+                            function avatarAvail() {
+                                
+                            }
 							if (card.imgAvail) {
 		      					return (<div key={id}>
 										<Card style={styles.cardStyle}>
                                             <img src={logo} style={styles.logoStyle}/>
 										    <div>{card.desc}</div>
-                                            <div style={{float:'left', marginTop:'5%'}}>
-                                                <Icon type='check-square-o' />
-                                                <span>3</span>&nbsp;&nbsp;
-                                                <Icon type='form' />
-                                                <span>1</span>
-                                            </div>
-                                            <Avatar src={imageUrl} style={{marginLeft: '110px', marginTop:'3px'}}/>
+                                            {commentsAvail()}
+                                            
+                                            <Avatar src={imageUrl} style={{marginLeft: '130px', marginTop:'3px'}}/>
 										</Card>
 									</div>)
 		      				} else {
