@@ -178,7 +178,7 @@ export default class Cards extends React.Component {
 					</Col></div>)
 					})}
                     <Col span={4} style={{ marginLeft: '10px', marginTop: '10px', float: 'left'}}>
-                        <Button size='large' style= {{backgroundColor: '#e8e8e8'}}>
+                        <Button size='large' style= {{backgroundColor: '#e8e8e8', width:'100%'}}>
                             <Icon type='plus' />Add a board
                         </Button>
                     </Col>
