@@ -65,9 +65,10 @@ export default class LayoutPage extends React.Component {
               </Col>
             </Row>
           </Header>
-          <Content style={{ background:" #e2dada" }}>            
+          <Content style={{ background:" #f5f5f0" }}>            
             <div>  <Cards imageUrl={imageUrl}/> </div>
           </Content>
+          <div style={{background:" #f5f5f0", width:"100%", height: "100px"}}></div>
         </Layout>  
       </div>
     )

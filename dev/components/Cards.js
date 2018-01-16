@@ -14,50 +14,100 @@ export default class Cards extends React.Component {
     			type: 'Backlog',
                 borderTopColor: '#ff0000',
     			contents: [{
-    				desc: 'Monetisation (Share revenue )',
-    				imgAvail: true,
-                    commentsAvail: true,
+    				desc: 'Monetisation (Share revenue with developers)',
+    				imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: true
     			},{
     				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false
+    				imgPresent: true,
+                    commentsPresent: true,
+                    avatarPresent: true
     			},{
                     desc: 'Post new dribble shot and share it on social media',
-                    imgAvail: false,
+                    imgPresent: false,
+                    commentsPresent: false,
+                    avatarPresent: false
+                },{
+                    desc: 'Monetisation (Share revenue with developers)',
+                    imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: false,
+                    avatarPresent: false,
+                    badgePresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: true
                 }]
     		},{
     			type: 'Next Priority',
                 borderTopColor: '#009933',
     			contents: [{
-    				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false,
-    			},{
-                    desc: 'Monetisation (Share revenue )',
-                    imgAvail: true,
-                    commentsAvail: false
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: true,
+                    commentsPresent: true,
+                    avatarPresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: false,
+                    avatarPresent: false
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: true
                 }]
     		},{
     			type: 'In Progress',
                 borderTopColor: '#3333ff',
     			contents: [{
-    				desc: 'Monetisation (Share revenue )',
-    				imgAvail: true,
-    			},{
-    				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false,
-    			}]
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: false,
+                    avatarPresent: false
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: true,
+                    commentsPresent: true,
+                    avatarPresent: false
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: true,
+                    avatarPresent: false
+                }]
     		},{
     			type: 'QA',
                 borderTopColor: '#996600',
     			contents: [{
-    				desc: 'Monetisation (Share revenue )',
-    				imgAvail: true,
-    			},{
-    				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false,
-    			},{
-    				desc: 'Post new dribble shot and share it on social media',
-    				imgAvail: false,
-    			}]
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: true,
+                    commentsPresent: true,
+                    avatarPresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: true,
+                    commentsPresent: true,
+                    avatarPresent: true
+                },{
+                    desc: 'Post new dribble shot and share it on social media',
+                    imgPresent: false,
+                    commentsPresent: false,
+                    avatarPresent: false,
+                    badgePresent: true
+                }]
     		}]
     	};
     	
@@ -78,7 +128,7 @@ export default class Cards extends React.Component {
             <div>
                 <Row>
                     {this.state.progress.map((prog, index) => {
-                        return (<Col span={4} style={{marginLeft: '12px', marginTop:'5px'}} key={index}><h4>{prog.type + ' ' +prog.contents.length}</h4> </Col>)
+                        return (<Col span={4} style={{marginLeft: '12px', marginTop:'5px'}} key={index}><h4 style={{float:'left'}}>{prog.type}&nbsp;&nbsp;</h4> <h4 style={{color: '#c2c2a3',float:'left'}}>{prog.contents.length}</h4><h4 style={{marginLeft: '90%'}}>… </h4> </Col>)
                     })}
                 </Row>
 				<Row>
@@ -86,8 +136,8 @@ export default class Cards extends React.Component {
                         return (<div key={index}><Col span={4} style={{paddingBottom: '5px', marginLeft: '10px', marginTop: '10px', backgroundColor: '#e8e8e8', float: 'left', borderTop: '3px solid '+prog.borderTopColor}} > 
                         
 						{prog.contents.map((card, id) => { 
-                            function commentsAvail() {
-                                if (card.commentsAvail) {
+                            function commentsPresent() {
+                                if (card.commentsPresent) {
                                     return (<div style={{float:'left', marginTop:'5%'}}>
                                                 <Icon type='check-square-o' />
                                                 <span>3</span>&nbsp;&nbsp;
@@ -96,28 +146,35 @@ export default class Cards extends React.Component {
                                             </div>)
                                 }
                             }
-                            function avatarAvail() {
-                                
+                            function avatarPresent() {
+                                if (card.avatarPresent) {
+                                    return (<div>
+                                                <Avatar src={imageUrl} style={{marginLeft: '50%', marginTop:'3px'}}/>
+                                            </div>)
+                                }
                             }
-							if (card.imgAvail) {
-		      					return (<div key={id}>
-										<Card style={styles.cardStyle}>
-                                            <img src={logo} style={styles.logoStyle}/>
-										    <div>{card.desc}</div>
-                                            {commentsAvail()}
-                                            
-                                            <Avatar src={imageUrl} style={{marginLeft: '130px', marginTop:'3px'}}/>
-										</Card>
-									</div>)
-		      				} else {
-		      					return (<div key={id}>
-										<Card style={styles.cardStyle}>
-										<div>{card.desc}</div>
-										</Card>
-									</div>)
-		      				}
+                            function imgPresent() {
+                                if (card.imgPresent) {
+                                    return (<img src={logo} style={styles.logoStyle}/>)
+                                }
+                            }
+                            function badgePresent() {
+                                if (card.badgePresent) {
+                                    return (<div style={{color:'#FFFFFF', backgroundColor:'#ff4d4d', width:'35%',height: '95%', marginTop: '2px', borderRadius:'4px'}}><Icon style={{ marginLeft:'4px'}} type='clock-circle-o' /><span style={{ marginLeft:'4px'}}>12:00</span></div>)
+                                }
+                            }
+							
+	      					return (<div key={id}>
+									<Card style={styles.cardStyle}>
+                                        {imgPresent()}
+									    <div>{card.desc}</div>
+                                            {commentsPresent()}
+                                            {avatarPresent()}
+                                            {badgePresent()}
+									</Card>
+								</div>)
 						})}
-                    <div style={{position:'fixed', marginLeft:'5px'}}><Icon type='plus-circle' style={{fontSize: '30px', color:"#6666ff"}}/></div>
+                    <div style={{position:'absolute', marginLeft:'5px'}}><Icon type='plus-circle' style={{fontSize: '30px', color:"#6666ff"}}/></div>
 					</Col></div>)
 					})}
                     <Col span={4} style={{ marginLeft: '10px', marginTop: '10px', float: 'left'}}>
