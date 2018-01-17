@@ -17,33 +17,42 @@ export default class Cards extends React.Component {
     				desc: 'Monetisation (Share revenue with developers)',
     				imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true,
+                    borderLeftColor: '#4d94ff'
     			},{
     				desc: 'Post new dribble shot and share it on social media',
     				imgPresent: true,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true
     			},{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: false,
-                    avatarPresent: false
+                    avatarPresent: false,
+                    checkIconPresent: false
                 },{
                     desc: 'Monetisation (Share revenue with developers)',
                     imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true,
+                    borderLeftColor: '#009900'
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: false,
                     avatarPresent: false,
-                    badgePresent: true
+                    badgePresent: true,
+                    checkIconPresent: false,
+                    borderLeftColor: '#ffff00'
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: false
                 }]
     		},{
     			type: 'Next Priority',
@@ -52,22 +61,28 @@ export default class Cards extends React.Component {
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: true,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: false
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: false,
-                    avatarPresent: false
+                    avatarPresent: false,
+                    checkIconPresent: false,
+                    borderLeftColor: '#ffff00'
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: false
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true,
+                    borderLeftColor: '#4d94ff'
                 }]
     		},{
     			type: 'In Progress',
@@ -76,17 +91,21 @@ export default class Cards extends React.Component {
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: false,
-                    avatarPresent: false
+                    avatarPresent: false,
+                    checkIconPresent: false
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: true,
                     commentsPresent: true,
-                    avatarPresent: false
+                    avatarPresent: false,
+                    checkIconPresent: true
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: true,
-                    avatarPresent: false
+                    avatarPresent: false,
+                    checkIconPresent: true,
+                    borderLeftColor: '#4d94ff'
                 }]
     		},{
     			type: 'QA',
@@ -95,18 +114,22 @@ export default class Cards extends React.Component {
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: true,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: true,
                     commentsPresent: true,
-                    avatarPresent: true
+                    avatarPresent: true,
+                    checkIconPresent: true
                 },{
                     desc: 'Post new dribble shot and share it on social media',
                     imgPresent: false,
                     commentsPresent: false,
                     avatarPresent: false,
-                    badgePresent: true
+                    badgePresent: true,
+                    checkIconPresent: false,
+                    borderLeftColor: '#009900'
                 }]
     		}]
     	};
@@ -115,17 +138,9 @@ export default class Cards extends React.Component {
 
 	render() {
         const imageUrl = this.props.imageUrl;
-        const styles = {
-            cardStyle : {
-                margin: '5px'
-            }, logoStyle: {
-                width:'180px',
-                height:'100px',
-                marginLeft:'10px'
-            }
-        };
+        let styleLeftBorderColor;
 		return (
-            <div>
+            <div style={{marginLeft:'5%'}}>
                 <Row>
                     {this.state.progress.map((prog, index) => {
                         return (<Col span={4} style={{marginLeft: '12px', marginTop:'5px'}} key={index}><h4 style={{float:'left'}}>{prog.type}&nbsp;&nbsp;</h4> <h4 style={{color: '#c2c2a3',float:'left'}}>{prog.contents.length}</h4><h4 style={{marginLeft: '90%'}}>… </h4> </Col>)
@@ -139,23 +154,33 @@ export default class Cards extends React.Component {
                             function commentsPresent() {
                                 if (card.commentsPresent) {
                                     return (<div style={{float:'left', marginTop:'5%'}}>
-                                                <Icon type='check-square-o' />
-                                                <span>3</span>&nbsp;&nbsp;
                                                 <Icon type='form' />
-                                                <span>1</span>
+                                                <span>1</span>&nbsp;&nbsp;
                                             </div>)
                                 }
                             }
+                            function checkIconPresent() {
+                                if (card.checkIconPresent) {
+                                    return (<div style={{float:'left', marginTop:'5%'}}>
+                                            <Icon type='check-square-o' />
+                                            <span>3</span>
+                                        </div>)
+                                }
+                            }
                             function avatarPresent() {
-                                if (card.avatarPresent) {
+                                if (card.avatarPresent && card.checkIconPresent) {
                                     return (<div>
                                                 <Avatar src={imageUrl} style={{marginLeft: '50%', marginTop:'3px'}}/>
+                                            </div>)
+                                } else if (card.avatarPresent && !card.checkIconPresent){
+                                    return (<div>
+                                                <Avatar src={imageUrl} style={{marginLeft: '60%', marginTop:'3px'}}/>
                                             </div>)
                                 }
                             }
                             function imgPresent() {
                                 if (card.imgPresent) {
-                                    return (<img src={logo} style={styles.logoStyle}/>)
+                                    return (<img src={logo} style={{width:'80%', height:'100px', marginLeft:'10px'}}/>)
                                 }
                             }
                             function badgePresent() {
@@ -163,12 +188,18 @@ export default class Cards extends React.Component {
                                     return (<div style={{color:'#FFFFFF', backgroundColor:'#ff4d4d', width:'35%',height: '95%', marginTop: '2px', borderRadius:'4px'}}><Icon style={{ marginLeft:'4px'}} type='clock-circle-o' /><span style={{ marginLeft:'4px'}}>12:00</span></div>)
                                 }
                             }
+                            if (card.borderLeftColor !== undefined) {
+                                styleLeftBorderColor = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor}
+                            } else {
+                                styleLeftBorderColor = {margin: '5px'}
+                            }
 							
 	      					return (<div key={id}>
-									<Card style={styles.cardStyle}>
+									<Card style={styleLeftBorderColor}>
                                         {imgPresent()}
 									    <div>{card.desc}</div>
                                             {commentsPresent()}
+                                            {checkIconPresent()}
                                             {avatarPresent()}
                                             {badgePresent()}
 									</Card>
@@ -179,7 +210,9 @@ export default class Cards extends React.Component {
 					})}
                     <Col span={4} style={{ marginLeft: '10px', marginTop: '10px', float: 'left'}}>
                         <Button size='large' style= {{backgroundColor: '#e8e8e8', width:'100%'}}>
+                            <div style={{textAlign: 'left'}}>
                             <Icon type='plus' />Add a board
+                            </div>
                         </Button>
                     </Col>
 				</Row>
