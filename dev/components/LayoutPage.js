@@ -33,17 +33,18 @@ export default class LayoutPage extends React.Component {
       <div style={{height:"100%", width:"100%"}}>
         <Layout style={{minHeight:"100%"}}>
           <Header style={{background:"#6666ff"}}>
+            <div style={{float:"left", marginTop:"10px"}}><Icon type="select" style={{background:"#333300", color:"#FFFFFF", fontSize: "20px", margin:"10px", border:"8px solid black", borderRadius: "4px"}}/></div>
             <div>
               <Menu mode="horizontal" style={{ lineHeight: "63px", background:"#6666ff", color:"#FFFFFF", float:"left" }} >
-                <Menu.Item key="1">Boards</Menu.Item>
-                <Menu.Item key="2">Activity</Menu.Item>
+                <Menu.Item key="1">Boards&nbsp;&nbsp;<span><Icon type="down" style={{color: "#FFFFFF", fontSize: "8px"}}/></span></Menu.Item>
+                <Menu.Item key="2">Activity<Badge count={2} style={{background: "#ff6600", color: "#FFFFFF", marginTop:"-20px"}}/></Menu.Item>
                 <Menu.Item key="3">Team mates</Menu.Item>
               </Menu>
               <div style={{marginLeft: "90%"}}>
               <Dropdown overlay={menu} trigger={["click"]}>
-                <div style={{marginTop: "5%"}}>
+                <div style={{marginTop: "5%", textAlign:"center"}}>
                 <Avatar src={imageUrl} />
-                  <Icon type="down" />
+                  <Icon type="down" style={{color: "#FFFFFF"}}/>
                 </div>
               </Dropdown>
               </div>
@@ -55,10 +56,10 @@ export default class LayoutPage extends React.Component {
                 <h3 style={{color:"#000000", float:"left", marginLeft: "10px"}}>Design Backlog &nbsp;&nbsp;</h3>
                 <h3 style={{color:"#999999"}}>|&nbsp;&nbsp;Dashboard Design Team</h3>
               </Col>
-              <Col className="gutter-row" span={6}>
+              <Col className="gutter-row" span={7} style={{textAlign: "right"}}>
                 <Search placeholder="Search" style={{ width: "300px" }}/>
               </Col>
-              <Col className="gutter-row" span={4}>
+              <Col className="gutter-row" span={3} style={{textAlign: "left"}}>
                 <Button style={{ background:"#6666ff", color: "#FFFFFF" }}>
                   <Icon type="plus" />New Card
                 </Button>
