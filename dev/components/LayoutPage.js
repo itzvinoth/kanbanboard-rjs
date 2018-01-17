@@ -33,16 +33,16 @@ export default class LayoutPage extends React.Component {
       <div style={{height:"100%", width:"100%"}}>
         <Layout style={{minHeight:"100%"}}>
           <Header style={{background:"#6666ff"}}>
-            <div style={{float:"left", marginTop:"10px"}}><Icon type="select" style={{background:"#333300", color:"#FFFFFF", fontSize: "20px", margin:"10px", border:"8px solid black", borderRadius: "4px"}}/></div>
-            <div>
-              <Menu mode="horizontal" style={{ lineHeight: "63px", background:"#6666ff", color:"#FFFFFF", float:"left" }} >
+            <div style={{float:"left"}}><Icon type="select" style={{background:"#333300", color:"#FFFFFF", fontSize: "20px", margin:"10px", border:"8px solid black", borderRadius: "4px"}}/></div>
+            <div style={{ backgroundColor:"#6666ff"}}>
+              <Menu mode="horizontal" style={{ background:"#6666ff", color:"#FFFFFF", float:"left", border: "2px" }} >
                 <Menu.Item key="1">Boards&nbsp;&nbsp;<span><Icon type="down" style={{color: "#FFFFFF", fontSize: "8px"}}/></span></Menu.Item>
                 <Menu.Item key="2">Activity<Badge count={2} style={{background: "#ff6600", color: "#FFFFFF", marginTop:"-20px"}}/></Menu.Item>
                 <Menu.Item key="3">Team mates</Menu.Item>
               </Menu>
               <div style={{marginLeft: "90%"}}>
               <Dropdown overlay={menu} trigger={["click"]}>
-                <div style={{marginTop: "5%", textAlign:"center"}}>
+                <div style={{marginTop: "6%", textAlign:"center"}}>
                 <Avatar src={imageUrl} />
                   <Icon type="down" style={{color: "#FFFFFF"}}/>
                 </div>
