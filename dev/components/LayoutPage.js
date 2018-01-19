@@ -30,7 +30,7 @@ export default class LayoutPage extends React.Component {
   render() {
     const { imageUrl } = this.state;
     return (
-      <div style={{height:"100%", width:"100%"}}>
+      <div style={{height:"100%", width:"1500px"}}>
         <Layout style={{minHeight:"100%"}}>
           <Header style={{background:"#6666ff"}}>
             <div style={{float:"left"}}><Icon type="select" style={{background:"#333300", color:"#FFFFFF", fontSize: "20px", margin:"10px", border:"8px solid black", borderRadius: "4px"}}/></div>
@@ -66,10 +66,10 @@ export default class LayoutPage extends React.Component {
               </Col>
             </Row>
           </Header>
-          <Content style={{ background:" #f5f5f0" }}>            
+          <Content style={{ background:" #eff3f6" }}>            
             <div>  <Cards imageUrl={imageUrl}/> </div>
           </Content>
-          <div style={{background:" #f5f5f0", width:"100%", height: "100px"}}></div>
+          <div style={{background:" #eff3f6", width:"100%", height: "100px"}}></div>
         </Layout>  
       </div>
     )
