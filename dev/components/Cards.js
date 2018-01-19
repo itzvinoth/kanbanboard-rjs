@@ -160,7 +160,7 @@ export default class Cards extends React.Component {
             <div style={{marginLeft:'5%'}}>
                 <Row>
                     {this.state.progress.map((prog, index) => {
-                        return (<Col style={{marginLeft: '12px', marginTop:'5px', width: '240px', float: 'left'}} key={index}><h4 style={{float:'left'}}>{prog.type}&nbsp;&nbsp;</h4> <h4 style={{color: '#c2c2a3',float:'left'}}>{prog.contents.length}</h4><h4 style={{marginLeft: '90%'}}>… </h4> </Col>)
+                        return (<Col style={{marginLeft: '12px', marginTop:'5px', width: '240px', float: 'left'}} key={index}><h4 style={{float:'left', color: '#354052'}}>{prog.type}&nbsp;&nbsp;</h4> <h4 style={{color: '#7f8fa4',float:'left'}}>{prog.contents.length}</h4><h4 style={{marginLeft: '90%'}}>… </h4> </Col>)
                     })}
                 </Row>
 				<Row>
@@ -170,7 +170,7 @@ export default class Cards extends React.Component {
 						{prog.contents.map((card, id) => { 
                             function commentsPresent() {
                                 if (card.commentsPresent) {
-                                    return (<div style={{float:'left', marginTop:'25px'}}>
+                                    return (<div style={{float:'left', marginTop:'15px'}}>
                                                 <Icon type='form' />
                                                 <span>1</span>&nbsp;&nbsp;
                                             </div>)
@@ -178,20 +178,20 @@ export default class Cards extends React.Component {
                             }
                             function checkIconPresent() {
                                 if (card.checkIconPresent) {
-                                    return (<div style={{float:'left', marginTop:'25px'}}>
+                                    return (<div style={{float:'left', marginTop:'15px'}}>
                                             <Icon type='check-square-o' />
-                                            <span>3</span>
+                                            <span>3</span>&nbsp;&nbsp;
                                         </div>)
                                 }
                             }
                             function avatarPresent() {
                                 if (card.avatarPresent && card.checkIconPresent) {
-                                    return (<div style={{float:'left', marginTop:'10px', marginLeft: '50%'}}>
-                                                <Avatar src={imageUrl} style={{}}/>
+                                    return (<div style={{float:'left', marginTop:'0px', marginLeft: '122px'}}>
+                                                <Avatar src={imageUrl}/>
                                             </div>)
                                 } else if (card.avatarPresent && !card.checkIconPresent){
-                                    return (<div style={{float:'left', marginTop:'10px', marginLeft: '60%'}}>
-                                                <Avatar src={imageUrl} style={{}}/>
+                                    return (<div style={{float:'left', marginTop:'0px', marginLeft: '150px'}}>
+                                                <Avatar src={imageUrl}/>
                                             </div>)
                                 }
                             }
@@ -202,26 +202,26 @@ export default class Cards extends React.Component {
                             }
                             function badgePresent() {
                                 if (card.badgePresent) {
-                                    return (<div style={{color:'#FFFFFF', backgroundColor:'#ff4d4d', width:'35%',height: '95%', marginTop: '2px', borderRadius:'4px'}}><Icon style={{ marginLeft:'4px'}} type='clock-circle-o' /><span style={{ marginLeft:'4px'}}>12:00</span></div>)
+                                    return (<div style={{textAlign:'center', color:'#FFFFFF', backgroundColor:'#ff4d4d', width:'30%',height: '95%', marginTop: '10px', borderRadius:'4px'}}><Icon style={{ marginLeft:'4px'}} type='clock-circle-o' /><span style={{ marginLeft:'4px'}}>12:00</span></div>)
                                 }
                             }
 
                             function singleLine() {
                                 if (card.cardType == 'singleLine') {
                                     if (card.cardType == 'singleLine' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '40px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '30px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'singleLine' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '40px', borderRadius: '2px',fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '30px', borderRadius: '4px',fontFamily: 'ProximaNova', color: '#354052'}
                                     }
-                                    return (<Card style={cardStyle}><div>{card.desc}</div></Card>)
+                                    return (<Card style={cardStyle}>{card.desc}</Card>)
                                 }
                             }
                             function doubleLine() {
                                 if (card.cardType == 'doubleLine') {
                                     if (card.cardType == 'doubleLine' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '60px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '55px', borderRadius: '4px', color: '#354052'};
                                     } else if (card.cardType == 'doubleLine' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '60px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '55px', borderRadius: '4px', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}><div>{card.desc}</div></Card>)
                                 }
@@ -229,19 +229,20 @@ export default class Cards extends React.Component {
                             function tripleLineWithBadge() {
                                 if (card.cardType == 'tripleLineWithBadge') {
                                     if (card.cardType == 'tripleLineWithBadge' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithBadge' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}><div>{card.desc}</div>{badgePresent()}</Card>)
                                 }
                             }
+
                             function tripleLineWithCommentsCheckBoxAvatar() {
                                 if (card.cardType == 'tripleLineWithCommentsCheckBoxAvatar') {
                                     if (card.cardType == 'tripleLineWithCommentsCheckBoxAvatar' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithCommentsCheckBoxAvatar' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}><div>{card.desc}</div>{commentsPresent()}{checkIconPresent()}{avatarPresent()}</Card>)
                                 }
@@ -249,9 +250,9 @@ export default class Cards extends React.Component {
                             function tripleLineWithCommentsCheckBox() {
                                 if (card.cardType == 'tripleLineWithCommentsCheckBox') {
                                     if (card.cardType == 'tripleLineWithCommentsCheckBox' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithCommentsCheckBox' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}><div>{card.desc}</div>{commentsPresent()}{checkIconPresent()}</Card>)
                                 }
@@ -259,9 +260,9 @@ export default class Cards extends React.Component {
                             function tripleLineWithCommentsAvatar() {
                                 if (card.cardType == 'tripleLineWithCommentsAvatar') {
                                     if (card.cardType == 'tripleLineWithCommentsAvatar' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithCommentsAvatar' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '90px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '90px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}><div>{card.desc}</div>{commentsPresent()}{avatarPresent()}</Card>)
                                 }
@@ -269,9 +270,9 @@ export default class Cards extends React.Component {
                             function tripleLineWithImageAvatar() {
                                 if (card.cardType == 'tripleLineWithImageAvatar') {
                                     if (card.cardType == 'tripleLineWithImageAvatar' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '225px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '220px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithImageAvatar' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '225px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '220px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}>{imgPresent()}<div>{card.desc}</div><div style={{height:'30px'}}>{commentsPresent()}{checkIconPresent()}{avatarPresent()}</div></Card>)
                                 }
@@ -279,9 +280,9 @@ export default class Cards extends React.Component {
                             function tripleLineWithImageNoAvatar() {
                                 if (card.cardType == 'tripleLineWithImageNoAvatar') {
                                     if (card.cardType == 'tripleLineWithImageNoAvatar' && card.borderLeftColor !== undefined) {
-                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '225px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'};
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid '+card.borderLeftColor, width:'230px', height: '220px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'};
                                     } else if (card.cardType == 'tripleLineWithImageNoAvatar' && card.borderLeftColor === undefined){
-                                        cardStyle = {margin: '5px', width:'230px', height: '225px', borderRadius: '2px', fontFamily: 'ProximaNova', fontSize: '13px', fontWeight: '600', fontStyle: 'normal', fontStretch: 'normal', lineHeight: '1.36', letterSpacing: 'normal', textAlign: 'left', color: '#354052'}
+                                        cardStyle = {margin: '5px', borderLeft: '3px solid #FFFFFF', width:'230px', height: '220px', borderRadius: '4px', fontFamily: 'ProximaNova', color: '#354052'}
                                     }
                                     return (<Card style={cardStyle}>{imgPresent()}<div>{card.desc}</div>{commentsPresent()}{checkIconPresent()}</Card>)
                                 }
@@ -298,12 +299,12 @@ export default class Cards extends React.Component {
                                     {tripleLineWithImageNoAvatar()}
 								</div>)
 						})}
-                    <div style={{position:'absolute', marginLeft:'5px'}}><Icon type='plus-circle' style={{fontSize: '30px', color:"#6666ff"}}/></div>
+                    <div style={{position:'absolute', marginLeft:'5px', marginTop:'-10px'}}><Icon type='plus-circle' style={{fontSize: '30px', color:"#1990ea"}}/></div>
 					</Col></div>)
 					})}
                     <Col style={{ width: '240px', marginLeft: '10px', marginTop: '10px', float: 'left'}}>
                         <Button size='large' style= {{backgroundColor: '#e8e8e8', width:'100%'}}>
-                            <div style={{textAlign: 'left'}}>
+                            <div style={{textAlign: 'left', color: '#ffffff'}}>
                             <Icon type='plus' />Add a board
                             </div>
                         </Button>
